@@ -43,12 +43,12 @@ RUN ldconfig
 WORKDIR /workspace
 
 # Install ns-3
-RUN apt-get install -y g++ python3 qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
-
+RUN apt-get install -y g++ python3 qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools vim vi
+# pip numpy
 # Change Docker File
-RUN git clone -b main https://github.com/jaewook2/nsOran.git /workspace/ns3-mmwave-oran
+RUN git clone -b main https://github.com/jaewook2/nsOran.git /workspace/ns3oran-ns3
 
-WORKDIR /workspace/ns3-mmwave-oran
+WORKDIR /workspace/ns3oran-ns3
 
 RUN ./waf configure --enable-tests --enable-examples
 RUN ./waf build
